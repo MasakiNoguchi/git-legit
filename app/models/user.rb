@@ -5,6 +5,7 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
   has_many :knowledges
+  has_many :skills, through: :knowledges
   has_many :contributions
   has_many :projects
 end
