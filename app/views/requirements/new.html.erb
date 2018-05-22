@@ -1,0 +1,4 @@
+<%= simple_form_for [@contribution, @requirement] do |f| %>
+<%= f.association :skill, collection: Skill.all, label_method: :name %>
+<%= f.submit %>
+<% end %>
