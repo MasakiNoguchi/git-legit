@@ -9,7 +9,6 @@ class ProjectsController < ApplicationController
 
   def edit
     @project = Project.find(params[:id])
-    redirect_to edit_project_path(@project)
   end
 
   def update

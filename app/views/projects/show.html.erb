@@ -1,5 +1,7 @@
 <div class="project-show">
   <h1><%= @project.title %></h1>
+  <h2>Contributions:</h2>
+  <p><%= @project.contributions.length %></p>
 
   <%= link_to "Back", root_path %>
 </div>
