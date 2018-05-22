@@ -7,11 +7,11 @@ Rails.application.routes.draw do
     resources :contributions, only: [:new, :create]
   end
 
+  resources :knowledges, only: [:new, :create, :destroy]
+
   resources :contributions, only: [:edit, :update, :destroy, :show] do
     resources :requirements, only: [:new, :create]
   end
 
   resources :requirements, only: [:destroy]
-
-  resources :knowledges, only: [:new, :create, :destroy]
 end
