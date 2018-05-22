@@ -34,6 +34,11 @@ class ProjectsController < ApplicationController
     end
   end
 
+  def delete
+    @project = Project.find(params[:id])
+    @project.destroy
+  end
+
   private
 
   def project_params
