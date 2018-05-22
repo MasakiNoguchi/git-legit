@@ -7,4 +7,6 @@ Rails.application.routes.draw do
     resources :contributions, only: [:new, :create]
   end
   resources :contributions, only: [:edit, :update, :destroy, :show]
+
+  resources :knowledges, only: [:new, :create, :destroy]
 end
