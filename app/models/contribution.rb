@@ -8,4 +8,5 @@ class Contribution < ApplicationRecord
   validates :description, presence: true
   validates :title, presence: true
   validates :status, presence: true, inclusion: { in: ["open", "booked", "closed"] }
+  # validates :user, presence: true, unless: status == "open"
 end
