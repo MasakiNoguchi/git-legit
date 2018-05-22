@@ -4,6 +4,6 @@ class Project < ApplicationRecord
 
   validates :title, presence: true
   validates :description, presence: true
-  validates :github_url, allow_nil: true, format: { with: /(?:git|ssh|https?|git@[-\w.]+):(\/\/)?(.*?)(\.git)(\/?|\#[-\d\w._]+?)/, message: "Please enter valid GitHub url" }
+  validates :github_url, allow_blank: true, format: { with: /(?:git|ssh|https?|git@[-\w.]+):(\/\/)?(.*?)(\.git)(\/?|\#[-\d\w._]+?)/, message: "Please enter valid GitHub url" }
   validates :user, presence: true
 end
