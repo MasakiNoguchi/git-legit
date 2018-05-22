@@ -1,0 +1,7 @@
+<%= simple_form_for [@project, @contribution] do |f| %>
+<%= f.input :title %>
+<%= f.input :description %>
+<%= f.input :guidelines %>
+<%= f.input :status unless @contribution.new_record? %>
+<%= f.submit %>
+<% end %>

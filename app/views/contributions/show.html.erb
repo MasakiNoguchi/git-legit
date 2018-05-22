@@ -1,0 +1,13 @@
+<div class="project-show">
+  <h1><%= @contribution.title %></h1>
+  <h2>Project:</h2>
+  <p><%= Project.find(@contribution.project_id).title %></p>
+  <h2>Description:</h2>
+  <p><%= @contribution.description %></p>
+  <h2>Status:</h2>
+  <p><%= @contribution.status %></p>
+  <h2>Guidelines:</h2>
+  <p><%= @contribution.guidelines %></p>
+
+  <%= link_to "Back", root_path %>
+</div>
