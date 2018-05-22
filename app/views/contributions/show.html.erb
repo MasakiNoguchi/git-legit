@@ -4,10 +4,15 @@
   <p><%= Project.find(@contribution.project_id).title %></p>
   <h2>Description:</h2>
   <p><%= @contribution.description %></p>
-  <h2>Status:</h2>
-  <p><%= @contribution.status %></p>
   <h2>Guidelines:</h2>
   <p><%= @contribution.guidelines %></p>
+  <h2>Status:</h2>
+  <p><%= @contribution.status %></p>
+
+  <% unless @contribution.status == "open" || @contribution.user.nil? %>
+    <h2>Assigned user:</h2>
+    <p><%= @contribution.user.email %></p>
+  <% end %>
 
   <%= link_to "Back", root_path %>
 </div>
