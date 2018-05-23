@@ -9,10 +9,11 @@
           <div class="card-category"># <%= i %></div>
           <div class="card-description">
             <h2><%= project.title %></h2>
-            <p>something here...</p>
+            <p><%= project.description[0, 100] %></p>
+            <p><strong>Relevant skills: &ensp;</strong><%= project_skills(project).join(", ") %></p>
           </div>
-          <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay">
-          <a class="card-link" href="#" ></a>
+          <!-- <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"> -->
+          <a class="card-link" href="<%= project_path(project) %>" ></a>
         </div>
       </div>
     <% end %>
