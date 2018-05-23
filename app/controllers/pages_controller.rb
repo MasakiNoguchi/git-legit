@@ -2,7 +2,7 @@ class PagesController < ApplicationController
   helper_method :project_skills
 
   def home
-    @projects = Project.last(10)
+    @projects = Project.last(10).reverse
   end
 
   def project_skills(project)

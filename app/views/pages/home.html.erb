@@ -6,7 +6,7 @@
     <% @projects.each_with_index do |project, i| %>
       <div class="col-xs-12 col-sm-4">
         <div class="card">
-          <div class="card-category"># <%= i %></div>
+          <div class="card-category green"># <%= i + 1 %></div>
           <div class="card-description">
             <h2><%= project.title %></h2>
             <p><%= project.description[0, 100] %></p>

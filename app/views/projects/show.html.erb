@@ -1,29 +1,29 @@
-<div class="project-show">
-  <h1><%= @project.title %></h1>
-  <h3><%= @project.user.full_name %></h3>
-  <h2>Description:</h2>
-  <p><%= @project.description %></p>
-  <div class="container">
-  <h1 class="latest-projects">Contributions: <%= @project.contributions.length %> </h1>
-  <div class="row">
-    <% @project.contributions.each_with_index do |contribution, i| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="card">
-          <div class="card-category"># <%= i %></div>
-          <div class="card-description">
-            <h2><%= contribution.title %></h2>
-            <p><%= contribution.description[0, 100] %></p>
-            <p><strong>Relevant skills: &ensp;</strong><%= contribution.skills.map {|skill| skill.name}.join(", ") %></p>
+<div class="container">
+  <div class="project-show">
+    <h1 class="text-center"><%= @project.title %></h1>
+    <h3 class="text-center"><strong>Owner: </strong><%= @project.user.full_name %></h3>
+    <h2>Description:</h2>
+    <p><%= @project.description %></p>
+    <h1 class="text-center">Contributions: <%= @project.contributions.length %> </h1>
+    <div class="text-center card-spacing"><%= link_to "Add contribution", new_project_contribution_path(@project)%></div>
+    <div class="row">
+      <% @project.contributions.each_with_index do |contribution, i| %>
+        <div class="col-xs-12 col-sm-4">
+          <div class="card">
+            <div class="card-category green"># <%= i + 1 %></div>
+            <div class="card-description">
+              <h2><%= contribution.title %></h2>
+              <p><%= contribution.description[0, 100] %></p>
+              <p><strong>Relevant skills: &ensp;</strong><%= contribution.skills.map {|skill| skill.name}.join(", ") %></p>
+            </div>
+            <!-- <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"> -->
+            <a class="card-link" href="<%= contribution_path(contribution) %>" ></a>
           </div>
-          <!-- <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"> -->
-          <a class="card-link" href="<%= contribution_path(contribution) %>" ></a>
         </div>
-      </div>
-    <% end %>
+      <% end %>
+    </div>
+
+
+    <%= link_to "Back", :back %>
   </div>
-</div>
-
-
-  <%= link_to "Add contribution", new_project_contribution_path(@project) %>
-  <%= link_to "Back", :back %>
 </div>
