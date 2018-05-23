@@ -16,5 +16,7 @@
     <p><%= @contribution.user.email %></p>
   <% end %>
 
+  <%= link_to "Register interest", contribution_interests_path(@contribution), method: :post, class: "btn, btn-primary" %>
+
   <%= link_to "Back", root_path %>
 </div>

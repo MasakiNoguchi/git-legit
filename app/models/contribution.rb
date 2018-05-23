@@ -3,6 +3,7 @@ class Contribution < ApplicationRecord
   belongs_to :user, optional: true
   has_many :requirements, dependent: :destroy
   has_many :skills, through: :requirements
+  has_many :interests
 
   validates :project, presence: true
   validates :description, presence: true

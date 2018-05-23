@@ -8,4 +8,9 @@ class User < ApplicationRecord
   has_many :skills, through: :knowledges
   has_many :contributions
   has_many :projects
+  has_many :interests
+
+  def full_name
+    "#{first_name} #{last_name}"
+  end
 end
