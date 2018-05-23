@@ -15,6 +15,7 @@
               <h2><%= contribution.title %></h2>
               <p><%= contribution.description[0, 100] %></p>
               <p><strong>Relevant skills: &ensp;</strong><%= contribution.skills.map {|skill| skill.name}.join(", ") %></p>
+              <p class="green" id="bright"><%= "New interest" if contribution.interests.length > 0 && contribution.status == "open" %></p>
             </div>
             <!-- <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"> -->
             <a class="card-link" href="<%= contribution_path(contribution) %>" ></a>
