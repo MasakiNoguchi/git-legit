@@ -1,5 +1,7 @@
 form {
-  .dark-field {
-    background-color: $light-gray;
+  .form-control {
+    background-color: black;
+    color: $green;
+    border-color: $light-gray;
   }
 }

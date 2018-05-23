@@ -6,6 +6,6 @@
   <%= f.input :status, collection: ["open", "booked", "closed"] %>
   <%= f.association :user, collection: User.all.reject { |user| user.interests.select { |interest| interest.contribution == @contribution}.empty? }, label_method: :full_name %>
 
-  <%= f.submit %>
+  <%= f.submit class: "btn btn-primary" %>
   <% end %>
 

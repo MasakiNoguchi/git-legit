@@ -3,7 +3,7 @@
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <%= simple_form_for [@contribution, @requirement] do |f| %>
         <%= f.association :skill, collection: Skill.all, label_method: :name %>
-        <%= f.submit %>
+        <%= f.submit class: "btn btn-primary" %>
       <% end %>
     </div>
   </div>
