@@ -1,7 +1,15 @@
-<%= simple_form_for @project do |f| %>
-<%= f.input :title %>
-<%= f.input :description %>
-<%= f.input :guidelines %>
-<%= f.input :github_url %>
-<%= f.submit %>
-<% end %>
+
+
+
+<div class="row">
+  <div class="col-xs-12 col-sm-6 col-sm-offset-3">
+    <%= simple_form_for @project do |f| %>
+    <%= f.input :title %>
+    <%= f.input :description %>
+    <%= f.input :guidelines %>
+    <%= f.input :github_url %>
+    <%= f.submit %>
+    <% end %>
+  </div>
+</div>
+
