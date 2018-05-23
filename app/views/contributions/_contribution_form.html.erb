@@ -1,9 +1,11 @@
-<%= simple_form_for [@project, @contribution] do |f| %>
-<%= f.input :title %>
-<%= f.input :description %>
-<%= f.input :guidelines %>
-<%= f.input :status, collection: ["open", "booked", "closed"] %>
-<%= f.association :user, collection: User.all.reject { |user| user.interests.select { |interest| interest.contribution == @contribution}.empty? }, label_method: :full_name %>
 
-<%= f.submit %>
-<% end %>
+  <%= simple_form_for [@project, @contribution] do |f| %>
+  <%= f.input :title %>
+  <%= f.input :description %>
+  <%= f.input :guidelines %>
+  <%= f.input :status, collection: ["open", "booked", "closed"] %>
+  <%= f.association :user, collection: User.all.reject { |user| user.interests.select { |interest| interest.contribution == @contribution}.empty? }, label_method: :full_name %>
+
+  <%= f.submit %>
+  <% end %>
+

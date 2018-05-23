@@ -1,6 +1,9 @@
-<h1>Add some knowledge!</h1>
-<%= simple_form_for @knowledge do |f| %>
-<%= f.association :skill, collection: Skill.all, label_method: :name %>
-<%= f.input :level, collection: ["basic","intermediate","advanced"] %>
-<%= f.submit %>
-<% end %>
+<div class="container">
+  <h1>Add some knowledge!</h1>
+  <%= simple_form_for @knowledge do |f| %>
+    <%= f.association :skill, collection: Skill.all, label_method: :name %>
+    <%= f.input :level, collection: ["basic","intermediate","advanced"] %>
+    <%= f.submit %>
+  <% end %>
+</div>
+

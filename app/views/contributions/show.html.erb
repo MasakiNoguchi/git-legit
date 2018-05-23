@@ -1,22 +1,23 @@
-<div class="project-show">
-  <h1><%= @contribution.title %></h1>
-  <h2>Project:</h2>
-  <p><%= Project.find(@contribution.project_id).title %></p>
-  <h2>Description:</h2>
-  <p><%= @contribution.description %></p>
-  <h2>Guidelines:</h2>
-  <p><%= @contribution.guidelines %></p>
-  <h2>Required skills</h2>
-  <p><%= @contribution.skills.length %></p>
-  <h2>Status:</h2>
-  <p><%= @contribution.status %></p>
+<div class="container">
+  <div class="project-show">
+    <h1 class="text-center"><%= @contribution.title %></h1>
+    <h3 class="text-center"><strong>Project: </strong><%= Project.find(@contribution.project_id).title %></h3>
+    <h2>Description:</h2>
+    <p><%= @contribution.description %></p>
+    <h2>Guidelines:</h2>
+    <p><%= @contribution.guidelines %></p>
+    <h2>Required skills:</h2>
+    <%= @contribution.skills.map { |skill| skill.name }.join(", ") %>
+    <h2>Status:</h2>
+    <p><%= @contribution.status %></p>
 
-  <% unless @contribution.status == "open" || @contribution.user.nil? %>
-    <h2>Assigned user:</h2>
-    <p><%= @contribution.user.email %></p>
-  <% end %>
+    <% unless @contribution.status == "open" || @contribution.user.nil? %>
+      <h2>Assigned user:</h2>
+      <p><%= @contribution.user.email %></p>
+    <% end %>
 
-  <%= link_to "Register interest", contribution_interests_path(@contribution), method: :post, class: "btn, btn-primary" %>
+    <%= link_to "Register interest", contribution_interests_path(@contribution), method: :post, class: "btn, btn-primary" %>
 
-  <%= link_to "Back", :back %>
+    <%= link_to "Back", :back %>
+  </div>
 </div>
