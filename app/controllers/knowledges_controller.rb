@@ -9,7 +9,7 @@ class KnowledgesController < ApplicationController
 
     if @knowledge.save!
       # THIS PATH NEEDS CHANGING TO USER_PATH ONCE DEFINED
-      redirect_to root_path
+      redirect_to user_path(current_user)
       # ---------------
     else
       render :new
