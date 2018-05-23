@@ -1,7 +1,7 @@
 <div class="navbar-wagon">
   <!-- Logo -->
   <%= link_to root_path do %>
-    <i class="fas fa-home icon"></i>
+    <%= image_tag "logo.png", height: 50 %>
   <% end %>
 
   <!-- Right Navigation -->
@@ -34,9 +34,8 @@
     <div class="dropdown">
       <i class="fa fa-bars dropdown-toggle" data-toggle="dropdown"></i>
       <ul class="dropdown-menu dropdown-menu-right navbar-wagon-dropdown-menu">
-        <li><a href="#">Host</a></li>
-        <li><a href="#">Trips</a></li>
-        <li><a href="#">Messagese</a></li>
+           <li><%= link_to "Profile", user_path(current_user) %></li>
+            <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
       </ul>
     </div>
   </div>

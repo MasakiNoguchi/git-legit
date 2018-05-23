@@ -7,24 +7,40 @@
   </div>
 
   <div class="user-skills-show">
-    <h3>Skills</h3>
-    <p><% @user.knowledges.each do |knowledge| %></p>
-    <%= knowledge.skill.name + ": " + knowledge.level %>
-    <% end %>
-    <br>
-    <div class="skill-button">
-    <%= link_to "Add a Skill", new_knowledge_path %>
+      <h3>Skills:</h3>
+      <p><em><% @user.knowledges.each do |knowledge| %></p>
+      <%= knowledge.skill.name + ": " + knowledge.level %>
+      <% end %></em>
+      <br>
+      <div class="add-skill-button">
+       <%= link_to "Add a Skill", new_knowledge_path, class: "btn-primary" %>
+      </div>
     </div>
   </div>
+</div>
 
-  <div class="user-projects-show">
-    <h3>Projects:</h3>
+
+<div class="user-projects-show">
+  <h3>Projects:</h3>
+  <div class="row">
     <% @user.projects.each do |project| %>
-    <%= link_to project.title, project_path(project) %>
+      <div class="col-xs-12 col-sm-4">
+        <div class="card">
+          <div class="card-description">
+            <h2><%= project.title %></h2>
+            <p><%= project.description[0, 100] %></p>
+          </div>
+          <a class="card-link" href="<%= project_path(project) %>" ></a>
+        </div>
+      </div>
     <% end %>
-    <br>
-    <%= link_to "Create a New Project", new_project_path %>
   </div>
+</div>
+  <br>
+  <div class="new-project-button">
+   <%= link_to "Create a New Project", new_project_path, class: "btn-primary" %>
+  </div>
+  <br>
 
   <div class="user-contributions-show">
     <h3>Contributions:</h3>
