@@ -1,0 +1,13 @@
+<div class="user-show">
+  <h1><%= @user.email %></h1>
+  <h2>Projects:</h2>
+  <p><%= @user.projects.count %></p>
+  <br>
+  <h2>Contributions:</h2>
+  <p><%= @user.contributions.count %></p>
+  <br>
+  <h2>Skills</h2>
+  <p><%= @user.skills.count %></p>
+  <br>
+  <%= link_to "Back", root_path %>
+</div>
