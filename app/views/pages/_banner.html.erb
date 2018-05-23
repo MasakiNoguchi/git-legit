@@ -2,6 +2,10 @@
   <div class="banner-content">
     <h1>Git Legit</h1>
     <p>Find collaborators for your open-source project</p>
-    <%= link_to "Start Now", new_project_path, class: "bttn-dark car-position" %>
+    <% if current_user %>
+    <%= link_to "Create a Project", new_project_path, class: "bttn-dark car-position" %>
+    <% else %>
+    <%= link_to "Log In", new_user_session_path, class: "bttn-dark car-position" %>
+    <% end %>
   </div>
 </div>
