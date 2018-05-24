@@ -6,9 +6,9 @@ class User < ApplicationRecord
 
   has_many :knowledges, dependent: :destroy
   has_many :skills, through: :knowledges
-  has_many :contributions
-  has_many :projects
-  has_many :interests
+  has_many :projects, dependent: :destroy
+  has_many :interests, dependent: :destroy
+  has_many :contributions, dependent: :destroy
 
   def full_name
     "#{first_name} #{last_name}"
