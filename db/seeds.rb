@@ -7,11 +7,25 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Skill.destroy_all
 
-skills = [
-  "Ruby", "Ruby on Rails", "SQL", "JavaScript", "Java", "C#", "Python",
-  "C++", "PHP", "IOS", "React", "HTML", "CSS", "Angular", "Ember", "Backbone",
-  "Swift", "Rust", "Elixir", "Scala", "R"
-]
-skills.each do |skill|
-  Skill.create({name: skill})
+skills = {
+  "Ruby" => "ruby-plain",
+  "Ruby on Rails" => "rails-plain",
+  "SQL" => "postgresql-plain",
+  "JavaScript" => "javascript-plain",
+  "Java" => "java-plain",
+  "C#" => "csharp-plain",
+  "Python" => "python-plain",
+  "C++" => "cplusplus-plain",
+  "PHP" => "php-plain",
+  "Swift" => "swift-plain",
+  "React" => "react-original",
+  "HTML" => "html5-plain",
+  "CSS" => "css3-plain",
+  "Angular" => "angularjs-plain",
+  "Backbone" => "backbonejs-plain",
+  "Coffeescript" => "coffeescript-original",
+  "Less" => "less-plain-wordmark"
+}
+skills.each do |skill, slug|
+  Skill.create({name: skill, slug: slug})
 end

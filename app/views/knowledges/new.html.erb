@@ -3,7 +3,7 @@
     <div class="col-xs-12 col-sm-6 col-sm-offset-3">
       <h1>Add some knowledge!</h1>
       <%= simple_form_for @knowledge do |f| %>
-        <%= f.association :skill, collection: Skill.all, label_method: :name %>
+        <%= f.association :skill, collection: Skill.all.sort_by{ |skill| skill.name }, label_method: :name %>
         <%= f.input :level, collection: ["basic","intermediate","advanced"] %>
         <%= f.submit class: "btn btn-primary" %>
       <% end %>
