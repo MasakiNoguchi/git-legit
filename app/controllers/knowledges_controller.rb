@@ -1,16 +1,16 @@
 class KnowledgesController < ApplicationController
   def new
     @knowledge = Knowledge.new
+    authorize @knowledge
   end
 
   def create
     @knowledge = Knowledge.create(knowledge_params)
     @knowledge.user = current_user
+    authorize @knowledge
 
-    if @knowledge.save!
-      # THIS PATH NEEDS CHANGING TO USER_PATH ONCE DEFINED
+    if @knowledge.save
       redirect_to user_path(current_user)
-      # ---------------
     else
       render :new
     end
@@ -18,7 +18,9 @@ class KnowledgesController < ApplicationController
 
   def destroy
     @knowledge = Knowledge.find(params[:id])
+    authorize @knowledge
     @knowledge.destroy
+    redirect_to user_path(current_user)
   end
 
   private

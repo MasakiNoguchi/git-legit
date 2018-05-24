@@ -53,3 +53,22 @@
 #bright {
   opacity: 1;
 }
+
+.card-delete {
+  position: absolute;
+  top: 15px;
+  right: 15px;
+  opacity: 0.2;
+  z-index: 3;
+}
+
+.card-delete:hover {
+  opacity: 1;
+  i {
+    color: $green;
+  }
+}
+
+.card-delete:hover ~ .card-link {
+  opacity: 0.1;
+}

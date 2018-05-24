@@ -2,12 +2,15 @@ class RequirementsController < ApplicationController
   def new
     @contribution = Contribution.find(params[:contribution_id])
     @requirement = Requirement.new
+    @requirement.contribution = @contribution
+    authorize @requirement
   end
 
   def create
     @contribution = Contribution.find(params[:contribution_id])
     @requirement = Requirement.new(requirement_params)
     @requirement.contribution = @contribution
+    authorize @requirement
 
     if @requirement.save
       redirect_to contribution_path(@contribution)
