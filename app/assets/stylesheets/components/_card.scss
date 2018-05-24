@@ -8,6 +8,15 @@
   background-color: $darker-gray;
   margin-bottom: 20px;
 }
+
+.card:hover {
+  background-color: $darkest-gray;
+  color: $green !important;
+  p {
+    opacity: 1 !important;
+  }
+}
+
 .card-user {
   position: absolute;
   right: 10px;
@@ -46,8 +55,12 @@
   background: black;
   opacity: 0;
 }
-.card-link:hover {
-  opacity: 0.1;
+// .card-link:hover {
+//   opacity: 0.1;
+// }
+
+.card-link:hover ~ .card-delete {
+  opacity: 0.3;
 }
 
 #bright {
@@ -67,8 +80,4 @@
   i {
     color: $green;
   }
-}
-
-.card-delete:hover ~ .card-link {
-  opacity: 0.1;
 }

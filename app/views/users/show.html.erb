@@ -1,43 +1,49 @@
 <div class="container">
-  <div class="user-show">
-    <div class="info">
+
+<!----------------------->
+
+  <div class="user-show section">
+    <div class="user-profile">
       <% if File.exist?("#{@user.email}.png") %>
         <img class="avatar" src="<%= image_path("#{@user.email}.png") %>" height="160" width="160">
       <% else %>
         <img class="avatar" src="<%= image_path("placeholder.png") %>" height="160" width="160">
       <% end %>
-      <h2><%= @user.email %></h2>
-      <p><%= @user.first_name + " " + @user.last_name %></p>
-      <p><%= @user.bio %></p>
+      <div class="info">
+        <h2><%= @user.full_name %></h2>
+        <p><%= @user.email %></p>
+        <p><%= @user.bio %></p>
+      </div>
     </div>
 
-    <div class="user-skills-show">
-        <h3>Skills:</h3>
-        <p><em><% @user.knowledges.each do |knowledge| %></p>
-        <%= knowledge.skill.name + ": " + knowledge.level %>
-          <% if @user == current_user %>
-            <%= link_to knowledge_path(knowledge), method: :delete do %>
-              <i class="far fa-trash-alt"></i>
-            <% end %>
-          <% end %>
-        <% end %></em>
-        <br>
+    <div class="user-skills">
+      <h3>Skills:</h3>
+      <p><em><% @user.knowledges.each do |knowledge| %></p>
+      <%= knowledge.skill.name + ": " + knowledge.level %>
         <% if @user == current_user %>
-          <div class="add-skill-button">
-           <%= link_to "Add a Skill", new_knowledge_path, class: "btn-primary" %>
-          </div>
+          <%= link_to knowledge_path(knowledge), method: :delete do %>
+            <i class="far fa-trash-alt"></i>
+          <% end %>
         <% end %>
-      </div>
+      <% end %></em>
+      <br>
+      <% if @user == current_user %>
+        <div class="add-skill-button">
+         <%= link_to "Add a Skill", new_knowledge_path, class: "btn btn-primary" %>
+        </div>
+      <% end %>
     </div>
   </div>
 
+<!---------------------------->
 
-  <div class="user-projects-show">
+  <div class="user-projects section">
     <h3>Projects:</h3>
     <div class="row">
       <% @user.projects.each do |project| %>
         <div class="col-xs-12 col-sm-4">
           <div class="card">
+            <a class="card-link" href="<%= project_path(project) %>" ></a>
             <div class="card-description">
               <h2><%= project.title %></h2>
               <p><%= project.description[0, 100] %></p>
@@ -50,23 +56,26 @@
                 <% end %>
               <% end %>
             </div>
-            <a class="card-link" href="<%= project_path(project) %>" ></a>
           </div>
         </div>
       <% end %>
     </div>
-  </div>
     <br>
-    <div class="new-project-button">
-     <%= link_to "Create a New Project", new_project_path, class: "btn-primary" %>
+    <div class="new-project-button btn btn-primary">
+      <%= link_to "Create a New Project", new_project_path, class: "btn-primary" %>
     </div>
     <br>
+  </div>
 
-    <div class="user-interests-show">
-      <h3>Contributions you are interested in:</h3>
+<!------------------------------>
+
+  <div class="user-interests section">
+    <h3>Contributions you are interested in:</h3>
+    <div class="row">
       <% @user.interests.each do |interest| %>
         <div class="col-xs-12 col-sm-4">
           <div class="card">
+            <a class="card-link" href="<%= contribution_path(interest.contribution) %>" ></a>
             <div class="card-description">
               <h2><%= interest.contribution.title %></h2>
               <p><%= interest.contribution.description[0, 100] %></p>
@@ -74,17 +83,22 @@
             <div class="card-delete">
                 <i class="far fa-trash-alt"></i>
             </div>
-            <a class="card-link" href="<%= contribution_path(interest.contribution) %>" ></a>
           </div>
         </div>
       <% end %>
     </div>
+  </div>
 
-    <div class="user-contributions">
-      <h3>Contributions you are working on:</h3>
+
+<!---------------------------------->
+
+  <div class="user-contributions section" id="last-section">
+    <h3>Contributions you are working on:</h3>
+    <div class="row">
       <% @user.contributions.each do |contribution| %>
         <div class="col-xs-12 col-sm-4">
           <div class="card">
+            <a class="card-link" href="<%= contribution_path(contribution) %>" ></a>
             <div class="card-description">
               <h2><%= contribution.title %></h2>
               <p><%= contribution.description[0, 100] %></p>
@@ -92,12 +106,14 @@
             <div class="card-delete">
                 <i class="far fa-trash-alt"></i>
             </div>
-            <a class="card-link" href="<%= contribution_path(contribution) %>" ></a>
           </div>
         </div>
       <% end %>
     </div>
-
-    <%= link_to "Back", :back %>
   </div>
+
+  <%= link_to "Back", :back %>
 </div>
+
+
+

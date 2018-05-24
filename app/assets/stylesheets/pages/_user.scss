@@ -1,12 +1,40 @@
 .user-show {
-  padding: 15px;
+  padding-top: 56px;
   display: flex;
-  align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
+  .user-profile {
+    display: flex;
+    .info {
+      padding: 0 32px;
+      h2 {
+        margin: 0;
+      }
+      p {
+        margin: 16px 0;
+      }
+    }
+  }
+  .user-skills {
+    h3 {
+      margin: 0;
+    }
+  }
 }
 
-.user-projects-show {
-  padding: 15px;
+.section {
+  border-bottom: 1px solid $light-gray;
+  padding: 56px 0;
+  h3 {
+    margin: 0;
+    margin-bottom: 24px;
+  }
+}
+
+#last-section {
+  border-bottom: none;
+}
+
+.user-projects {
   justify-content: space-around;
 }
 
@@ -18,6 +46,3 @@
   padding: 15px;
 }
 
-.add-skill-button {
-  padding: 20px;
-}
