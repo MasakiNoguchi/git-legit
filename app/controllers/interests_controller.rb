@@ -4,6 +4,7 @@ class InterestsController < ApplicationController
     interest = Interest.new
     interest.user = current_user
     interest.contribution = contribution
+    authorize interest
     interest.save
     redirect_to contribution_path(contribution)
   end
