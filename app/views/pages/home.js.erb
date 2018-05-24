@@ -1,0 +1,11 @@
+const results = document.getElementById('results');
+
+function refreshResults(results, innerHTML) {
+  results.innerHTML = innerHTML;
+}
+
+const searchBar = document.getElementById('search')
+searchBar.addEventListener("keyup", (event) => {
+  console.log(event);
+  refreshResults(results, '<%= j render "pages/results_home", results: @projects %>');
+})

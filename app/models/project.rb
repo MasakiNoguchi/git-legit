@@ -11,4 +11,10 @@ class Project < ApplicationRecord
     array = self.contributions.select { |contribution| contribution.interests.length > 0 && contribution.status == "open" }
     !array.empty?
   end
+
+  include AlgoliaSearch
+
+  algoliasearch do
+    attribute :title, :description
+  end
 end

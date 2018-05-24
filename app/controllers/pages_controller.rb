@@ -2,7 +2,15 @@ class PagesController < ApplicationController
   helper_method :project_skills
 
   def home
-    @projects = Project.last(10).reverse
+    if params[:query].present?
+      @projects = Project.search(params[:query])
+      respond_to do |format|
+        format.html { redirect_to root_path }
+        format.js  # <-- will render `app/views/pages/home.js.erb`
+      end
+    else
+      @projects = Project.all
+    end
   end
 
   def project_skills(project)
