@@ -1,6 +1,10 @@
 class ProjectsController < ApplicationController
   def index
-    @projects = Project.all
+    if
+      @projects = Project.search((params[:query].present? ? params[:query] : '*')).records
+    else
+      @projects = Project.all
+    end
   end
 
   def show
@@ -33,6 +37,7 @@ class ProjectsController < ApplicationController
     @project.user = current_user
     authorize @project
     if @project.save
+      Project.reindex
       redirect_to project_path(@project)
     else
       render :new
