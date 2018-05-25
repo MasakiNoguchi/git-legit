@@ -43,6 +43,13 @@
             <div class="thecard">
               <div class="card-caption">
                 <div class="card-delete">
+                  <% if contribution.status == "booked" %>
+                    <p>booked</p>
+                  <% elsif contribution.interests.length > 0 && contribution.status == "open" %>
+                    <p>open with interest</p>
+                  <% else %>
+                    <p>open</p>
+                  <% end %>
                   <% if contribution.user == current_user %>
                     <%= link_to remove_contribution_user_path(contribution) do %>
                       <p>unassign</p>
