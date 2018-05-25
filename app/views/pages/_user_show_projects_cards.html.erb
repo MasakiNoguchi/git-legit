@@ -19,7 +19,14 @@
             <span class="date">Last updated: <%= project.updated_at %></span>
             <h1 class="project-title"><%= project.title %></h1>
             <p class="card-description"><p><%= project.description[0, 100] %></p>
-            <p class ="card-skills"><strong><em>Relevant skills:</em> &ensp;</strong><%= project.skills.join(", ") %></p>
+            <div class="reqs-box">
+              <p class ="card-skills"><strong><em>Relevant skills:</em> &ensp;</strong></p>
+              <div class="reqs">
+                <% project.skills.each do |skill| %>
+                  <i class="devicon-<%= skill.slug %>"></i>
+                <% end %>
+              </div>
+            </div>
             <p class="green" id="bright"><%= "New interest" if project.interest? %></p>
           </div>
           <div class="card-out">

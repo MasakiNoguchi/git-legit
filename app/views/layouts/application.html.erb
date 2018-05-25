@@ -19,6 +19,25 @@
     <%= yield(:after_js) %>
     <%= render 'shared/footer' %>
     <script>
+      const cards = document.querySelectorAll(".thecard")
+
+      cards.forEach((card) => {
+
+        const devicons = card.querySelectorAll(".reqs i")
+
+
+        card.addEventListener("mouseout", () => {
+          devicons.forEach((devicon) => {
+            devicon.classList.remove("colored")
+          })
+        })
+        card.addEventListener("mouseover", () => {
+          devicons.forEach((devicon) => {
+            devicon.classList.add("colored")
+          })
+        })
+      })
+
       const devicons = document.querySelectorAll(".reqs i, .knowledges i")
 
       devicons.forEach((devicon) => {
