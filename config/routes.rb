@@ -18,5 +18,7 @@ Rails.application.routes.draw do
     resources :interests, only: [:create]
   end
 
+  resources :interests, only: [:destroy]
+
   resources :requirements, only: [:destroy]
 end

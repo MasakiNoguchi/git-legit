@@ -6,9 +6,9 @@
         <div class="thecard">
           <div class="card-caption">
             <div class="card-delete">
-              <% if interest.contribution.user == current_user %>
-              <%= link_to contribution_path(interest), method: :delete do %>
-              <i class="far fa-trash-alt"></i>
+              <% if interest.user == current_user %>
+                <%= link_to interest_path(interest), method: :delete do %>
+                  <i class="far fa-trash-alt"></i>
                 <% end %>
               <% end %>
             </div>

@@ -8,4 +8,11 @@ class InterestsController < ApplicationController
     interest.save
     redirect_to contribution_path(contribution)
   end
+
+  def destroy
+    @interest = Interest.find(params[:id])
+    authorize @interest
+    @interest.destroy
+    redirect_to user_path(current_user)
+  end
 end
