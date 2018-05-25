@@ -10,6 +10,11 @@ class ProjectsController < ApplicationController
   def show
     @project = Project.find(params[:id])
     authorize @project
+    @skills = []
+    @project.contributions.each do |contribution|
+      contribution.skills.each { |skill| @skills << skill}
+    end
+    @skills.uniq
   end
 
   def edit
