@@ -46,7 +46,14 @@ class ContributionsController < ApplicationController
   end
 
   def remove_user
+    @contribution = Contribution.find(params[:id])
     @contribution.user = nil
+    authorize @contribution
+    if @contribution.save
+      redirect_to user_path(current_user), notice: "Successful deletion"
+    else
+      redirect_to user_path(current_user), alert: "That didn't work"
+    end
   end
 
   private

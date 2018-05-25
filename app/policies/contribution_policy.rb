@@ -20,4 +20,8 @@ class ContributionPolicy < ApplicationPolicy
   def update?
     edit?
   end
+
+  def remove_user?
+    true # Improve with third method ?
+  end
 end
