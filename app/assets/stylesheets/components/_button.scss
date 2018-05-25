@@ -60,9 +60,11 @@ a.bttn-dark {
   transition:0.3s ease all;
   &:hover {
     color:#FFF;
+    transform: scale(1.05)
   }
   &:focus {
     color:#FFF;
+    transform: scale(1.05)
   }
 }
 
@@ -99,6 +101,8 @@ a.bttn-dark {
       left:0;
       right:0;
       opacity:1;
+      transform: scale(1.025);
+      border-radius:10px;
     }
   }
   &:focus {
@@ -108,6 +112,7 @@ a.bttn-dark {
       left:0;
       right:0;
       opacity:1;
+      transform: scale(1.05)
     }
   }
 }

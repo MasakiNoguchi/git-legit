@@ -7,6 +7,7 @@
   position: relative;
   background-color: $darker-gray;
   margin-bottom: 20px;
+  opacity: 0.9;
   transition: all 0.3s ease;
 }
 
@@ -45,6 +46,8 @@
   font-size: 14px;
   opacity: 0.7;
   font-weight: lighter;
+  position: absolute;
+  bottom: 10px;
 }
 .card-link {
   position: absolute;
@@ -81,4 +84,116 @@
   i {
     color: $green;
   }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+.col-xs-12.col-sm-4:hover .card-img img {
+  opacity: .9;
+}
+
+.col-xs-12.col-sm-4:hover .card-out {
+  background: #2C3E50;
+  color: #fff;
+}
+
+.col-xs-12.col-sm-4:hover .thecard {
+  transform: scale(1.025)
+}
+
+
+.thecard {
+  width: 300px;
+  margin: 5% auto;
+  display: block;
+  background-color: black;
+  border-radius: 4px;
+  transition: 400ms ease;
+}
+
+.card-img {
+  height: 230px;
+}
+
+.card-img img {
+  width: 100%;
+  border-radius: 4px 4px 4px 4px;
+  height: 100%;
+
+}
+
+.card-caption {
+  position: relative;
+  background: black;
+  padding: 15px 25px 5px 25px;
+}
+
+.card-out {
+  padding: 10px 25px 10px 25px;
+  background: black;
+  color: white;
+  display: inline-table;
+  width: 100%;
+  box-sizing: border-box;
+  transition: 400ms ease;
+}
+.card-out h5 {
+  float: left;
+}
+.card-out i {
+  float: right;
+}
+
+span.date {
+  font-size: 10px;
+}
+
+h1 {
+  font-size: 22px;
+}
+
+h5 {
+  margin:0;
+  color: $green;
+}
+
+#heart-btn {
+  font-size: 18px;
+  background: $green;
+  color: #fff;
+  padding: 13px 15px;
+  border-radius: 50em;
+  position: absolute;
+  right: 20px;
+  top: -22px;
+  box-shadow: 0 2px 1px rgba(0,0,0,.2);
+  transition: 400ms ease;
+}
+
+#like-btn:hover {
+  font-size: 18px;
+  background: #3B5998;
+  color: #fff;
+  padding: 13px 15px;
+  border-radius: 50em;
+  position: absolute;
+  right: 20px;
+  top: -22px;
+  box-shadow: 0 4px 5px rgba(0,0,0,.3);
+}
+
+#out-icon {
+  border:1px solid $green;
+  padding: 1px 6px;
+  border-radius: 50em;
+  color: $green;
 }
