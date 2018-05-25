@@ -4,6 +4,10 @@
     <div class="header" id="last-section">
       <h1 class="text-center"><%= @contribution.title %></h1>
       <h3 class="text-center"><strong>Project: </strong><%= link_to Project.find(@contribution.project_id).title, project_path(@contribution.project) %></h3>
+      <h3>Interested users:</h3>
+      <% @contribution.interests.each do |interest| %>
+        <%= link_to interest.user.full_name, user_path(interest.user) %>
+      <% end %>
     </div>
 
     <div class="skills-and-edit section">
