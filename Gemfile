@@ -20,6 +20,8 @@ gem 'webpacker'
 gem 'devise'
 gem 'algoliasearch-rails'
 gem 'hogan_assets'
+gem 'cloudinary'
+gem 'carrierwave', '~> 1.2'
 
 group :development do
   gem 'web-console', '>= 3.3.0'

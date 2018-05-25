@@ -9,6 +9,7 @@ class User < ApplicationRecord
   has_many :projects, dependent: :destroy
   has_many :interests, dependent: :destroy
   has_many :contributions, dependent: :destroy
+  mount_uploader :photo, PhotoUploader
 
   def full_name
     "#{first_name} #{last_name}"
