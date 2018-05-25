@@ -38,35 +38,9 @@
 
 <!---------------------------->
 
-  <div class="user-projects section">
-    <h3>Projects:</h3>
-    <div class="row">
-      <% @user.projects.each do |project| %>
-        <div class="col-xs-12 col-sm-4">
-          <div class="card">
-            <a class="card-link" href="<%= project_path(project) %>" ></a>
-            <div class="card-description">
-              <h2><%= project.title %></h2>
-              <p><%= project.description[0, 100] %></p>
-              <p class="green" id="bright"><%= "New interest" if project.interest? %></p>
-            </div>
-            <div class="card-delete">
-              <% if project.user == current_user %>
-                <%= link_to project_path(project), method: :delete do %>
-                  <i class="far fa-trash-alt"></i>
-                <% end %>
-              <% end %>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-    <br>
-    <div class="new-project-button btn btn-primary">
-      <%= link_to "Create a New Project", new_project_path, class: "btn-primary" %>
-    </div>
-    <br>
-  </div>
+  <!-- USER PROJECT CARDS -->
+
+  <%= render 'pages/user_show_projects_cards' %>
 
 <!------------------------------>
 
@@ -75,15 +49,31 @@
     <div class="row">
       <% @user.interests.each do |interest| %>
         <div class="col-xs-12 col-sm-4">
-          <div class="card">
-            <a class="card-link" href="<%= contribution_path(interest.contribution) %>" ></a>
-            <div class="card-description">
-              <h2><%= interest.contribution.title %></h2>
-              <p><%= interest.contribution.description[0, 100] %></p>
+          <div class="thecard">
+            <div class="card-img">
+              <img src="https://picsum.photos/200/300/?random">
             </div>
-            <div class="card-delete">
+            <div class="card-caption">
+              <div class="card-delete">
+                <% if interest.contribution.user == current_user %>
+                <%= link_to contribution_path(interest), method: :delete do %>
                 <i class="far fa-trash-alt"></i>
+                  <% end %>
+                <% end %>
+              </div>
+              <i id="clock-btn" class="far fa-clock"></i>
+              <span class="date">Last updated: <%= interest.updated_at %></span>
+              <h1 class="project-title"><%= interest.contribution.title %></h1>
+              <p class="card-description">
+                <h2><%= interest.contribution.title %></h2>
+                <p><%= interest.contribution.description[0, 100] %></p>
+                <p class ="card-skills"><strong><em>Relevant skills:</em> &ensp;</strong><%= interest.contribution.skills.join(", ") %></p>
             </div>
+            <div class="card-out">
+              <h5>Read more</h5>
+              <i id="out-icon" class="fa fa-angle-right"></i>
+            </div>
+            <a class="card-link" href="<%= contribution_path(interest.contribution) %>" ></a>
           </div>
         </div>
       <% end %>

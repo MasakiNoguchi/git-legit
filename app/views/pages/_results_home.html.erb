@@ -5,11 +5,12 @@
         <img src="https://picsum.photos/200/300/?random">
       </div>
       <div class="card-caption">
-        <i id="heart-btn" class="far fa-heart"></i>
+        <i id="clock-btn" class="far fa-clock"></i>
         <span class="date">Last updated: <%= project.updated_at %></span>
         <h1 class="project-title"><%= project.title %></h1>
-        <p><%= project.description[0, 100] %></p>
-        <p><strong>Relevant skills: &ensp;</strong><%= project_skills(project).join(", ") %></p>
+        <p class ="card-description"><%= project.description[0, 100] %></p>
+
+        <p class ="card-skills"><strong><em>Relevant skills:</em> &ensp;</strong><%= project_skills(project).join(", ") %></p>
       </div>
       <div class="card-out">
         <h5>Read more</h5>
