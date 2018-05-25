@@ -45,6 +45,10 @@ class ContributionsController < ApplicationController
     @contribution.destroy
   end
 
+  def remove_user
+    @contribution.user = nil
+  end
+
   private
 
   def contribution_params
