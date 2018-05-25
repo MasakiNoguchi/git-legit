@@ -1,20 +1,39 @@
 <div class="container">
-  <div class="project-show">
-    <h1 class="text-center"><%= @contribution.title %></h1>
-    <h3 class="text-center"><strong>Project: </strong><%= link_to Project.find(@contribution.project_id).title, project_path(@contribution.project) %></h3>
-    <h2>Description:</h2>
-    <p><%= @contribution.description %></p>
-    <h2>Guidelines:</h2>
-    <p><%= @contribution.guidelines %></p>
-    <h2>Required skills:</h2>
-    <% @contribution.skills.each do |skill| %>
-      <%= raw '<i class="devicon-' + skill.slug + ' colored"></i>' %>
-      <%= skill.name %>
-    <% end %>
+  <div class="contribution-show">
+
+    <div class="header" id="last-section">
+      <h1 class="text-center"><%= @contribution.title %></h1>
+      <h3 class="text-center"><strong>Project: </strong><%= link_to Project.find(@contribution.project_id).title, project_path(@contribution.project) %></h3>
+    </div>
+
+    <div class="skills-and-edit section">
+      <div class="reqs-box">
+        <p>Requirements: </p>
+        <div class="reqs">
+          <% @contribution.skills.each do |skill| %>
+            <i class="devicon-center devicon-<%= skill.slug %>"></i>
+          <% end %>
+        </div>
+        <% if @contribution.project.user == current_user %>
+          <%= link_to "Add a skill", new_contribution_requirement_path(@contribution), class: "btn btn-primary" %>
+        <% end %>
+      </div>
+      <% if @contribution.project.user == current_user %>
+        <h3 class="text-center"><%= link_to "edit", edit_contribution_path(@contribution) %></h3>
+      <% end %>
+    </div>
+
+    <div class="description section">
+      <h2>Description:</h2>
+      <p><%= @contribution.description %></p>
+    </div>
+
+    <div class="guidelines section">
+      <h2>Guidelines:</h2>
+      <p><%= @contribution.guidelines %></p>
+    </div>
+
     <br>
-    <% if @contribution.project.user == current_user %>
-      <%= link_to "Add a skill", new_contribution_requirement_path(@contribution), class: "btn btn-primary" %>
-    <% end %>
     <h2>Status:</h2>
     <p><%= @contribution.status %></p>
 
@@ -23,8 +42,12 @@
       <p><%= @contribution.user.email %></p>
     <% end %>
 
-    <%= link_to "Register interest", contribution_interests_path(@contribution), method: :post, class: "btn btn-primary" %>
-    <%= link_to "Assign to user", edit_contribution_path(@contribution), class: "btn btn-primary" if @contribution.project.user == current_user %>
-    <%= link_to "Back", :back %>
+    <div class="interest-btns">
+      <% if @contribution.project.user == current_user %>
+        <%= link_to "Assign to user", edit_contribution_path(@contribution), class: "btn btn-primary" if @contribution.project.user == current_user %>
+      <% else %>
+        <%= link_to "Register interest", contribution_interests_path(@contribution), method: :post, class: "btn btn-primary" %>
+      <% end %>
+    </div>
   </div>
 </div>

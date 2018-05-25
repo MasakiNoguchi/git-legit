@@ -18,5 +18,17 @@
     <%= javascript_pack_tag 'application' %>
     <%= yield(:after_js) %>
     <%= render 'shared/footer' %>
+    <script>
+      const devicons = document.querySelectorAll(".reqs i, .knowledges i")
+
+      devicons.forEach((devicon) => {
+        devicon.addEventListener("mouseout", (event) => {
+          event.target.classList.remove("colored")
+        })
+        devicon.addEventListener("mouseover", (event) => {
+          event.target.classList.add("colored")
+        })
+      })
+    </script>
   </body>
 </html>

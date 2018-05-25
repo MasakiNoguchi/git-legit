@@ -19,7 +19,9 @@
     <div class="user-skills">
       <h3>Skills:</h3>
       <p><em><% @user.knowledges.each do |knowledge| %></p>
-      <%= raw '<i class="devicon-' + knowledge.skill.slug + ' colored"></i>' %>
+      <div class="knowledges">
+        <i class="devicon-<%= knowledge.skill.slug %>"></i>
+      </div>
       <%= knowledge.skill.name + ": " + knowledge.level %>
         <% if @user == current_user %>
           <%= link_to knowledge_path(knowledge), method: :delete do %>

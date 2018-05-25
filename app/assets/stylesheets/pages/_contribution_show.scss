@@ -1,3 +1,42 @@
-.green {
-  color: #6AD58B;
+.contribution-show{
+  .interest-btns {
+    display: flex;
+    justify-content: center;
+  }
+  .card-spacing {
+    margin-bottom: 30px;
+  }
+  h1 {
+    font-size: 56px;
+    margin-bottom: 0;
+  }
+  h3 {
+    font-size: 24px;
+  }
+  .skills-and-edit {
+    display: flex;
+    justify-content: space-between;
+    padding-bottom: 0 !important;
+    align-items: center;
+    padding-bottom: 8px !important;
+    h3 {
+      margin: 0;
+    }
+    .reqs-box > p {
+        padding-right: 24px;
+        align-items: center;
+        margin: 0;
+    }
+    .reqs-box{
+      display: flex;
+      align-items: center;
+      .reqs {
+        display: flex;
+        i {
+          padding-right: 16px;
+          font-size: 32px;
+        }
+      }
+    }
+  }
 }
