@@ -17,7 +17,14 @@
         <h1 class="project-title"><%= project.title %></h1>
         <p class ="card-description"><%= project.description[0, 100] %></p>
 
-        <p class ="card-skills"><strong><em>Relevant skills:</em> &ensp;</strong><%= project_skills(project).join(", ") %></p>
+        <div class="reqs-box">
+          <p class ="card-skills"><strong><em>Relevant skills:</em> &ensp;</strong></p>
+          <div class="reqs">
+            <% project.skills.each do |skill| %>
+              <i class="devicon-<%= skill.slug %>"></i>
+            <% end %>
+          </div>
+        </div>
       </div>
       <div class="card-out">
         <h5>Read more</h5>

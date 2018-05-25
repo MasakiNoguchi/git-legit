@@ -46,3 +46,19 @@
   padding: 15px;
 }
 
+.knowledges-box {
+  display: flex;
+  margin: 10px 0;
+  .knowledges {
+    i {
+      font-size: 32px;
+    }
+  }
+  .details {
+    margin: 0 20px;
+  }
+}
+
+.knowledges-list {
+  margin: 40px 0;
+}

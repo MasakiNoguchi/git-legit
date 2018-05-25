@@ -16,7 +16,14 @@
             <span class="date">Last updated: <%= contribution.updated_at %></span>
             <h1 class="project-title"><%= contribution.title %></h1>
             <p class="card-description"><%= contribution.description[0, 100] %></p>
-            <p class ="card-skills"><strong><em>Relevant skills:</em> &ensp;</strong><%= contribution.skills.join(", ") %></p>
+            <div class="reqs-box">
+              <p class ="card-skills"><strong><em>Relevant skills:</em> &ensp;</strong></p>
+              <div class="reqs">
+                <% contribution.skills.each do |skill| %>
+                  <i class="devicon-<%= skill.slug %>"></i>
+                <% end %>
+              </div>
+            </div>
           </div>
           <div class="card-out">
             <h5>Read more</h5>
