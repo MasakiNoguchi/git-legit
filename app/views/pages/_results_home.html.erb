@@ -2,7 +2,12 @@
   <div class="col-xs-12 col-sm-4">
     <div class="thecard">
       <div class="card-img">
-        <img src="https://picsum.photos/200/300/?random">
+        <% if project.photo.present? %>
+          <% photo = cl_image_tag project.photo%>
+        <% else %>
+          <% photo = cl_image_tag('logo.png') %>
+        <% end %>
+        <%= photo %>
       </div>
       <div class="card-caption">
         <div class="card-delete">
