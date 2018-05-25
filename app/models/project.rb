@@ -10,7 +10,7 @@ class Project < ApplicationRecord
   def skills
     skills = []
     self.contributions.each do |contribution|
-      contribution.skills.each { |skill| skills << skill.name}
+      contribution.skills.each { |skill| skills << skill }
     end
     skills.uniq
   end
