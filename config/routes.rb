@@ -13,6 +13,8 @@ Rails.application.routes.draw do
 
   resources :knowledges, only: [:new, :create, :destroy]
 
+  get 'contributions/:id/remove_user', to: "contributions#remove_user", as: "remove_contribution_user"
+
   resources :contributions, only: [:edit, :update, :destroy, :show] do
     resources :requirements, only: [:new, :create]
     resources :interests, only: [:create]

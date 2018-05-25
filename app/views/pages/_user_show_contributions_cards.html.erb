@@ -7,8 +7,8 @@
           <div class="card-caption">
             <div class="card-delete">
               <% if contribution.user == current_user %>
-              <%= link_to contribution_path(contribution), method: :delete do %>
-              <i class="far fa-trash-alt"></i>
+                <%= link_to remove_contribution_user_path(contribution) do %>
+                  <p>unassign</p>
                 <% end %>
               <% end %>
             </div>
