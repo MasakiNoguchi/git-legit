@@ -1,10 +1,15 @@
 // Specific CSS for your home-page
 body {
-  background-color: $dark-gray;
+  background-color: black;
   color: white;
 }
 
 .latest-projects {
   text-align: center;
   padding: 50px;
+}
+
+.form-control {
+  margin-bottom: 20px;
+  border-radius: 5px;
 }
