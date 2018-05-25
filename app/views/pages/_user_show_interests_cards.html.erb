@@ -2,36 +2,36 @@
   <h3>Contributions you are interested in:</h3>
   <div class="row">
     <% @user.interests.each do |interest| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="thecard">
-          <div class="card-caption">
-            <div class="card-delete">
-              <% if interest.user == current_user %>
-                <%= link_to interest_path(interest), method: :delete do %>
-                  <i class="far fa-trash-alt"></i>
-                <% end %>
+    <div class="col-xs-12 col-sm-4">
+      <div class="thecard">
+        <div class="card-caption">
+          <div class="card-delete">
+            <% if interest.user == current_user %>
+              <%= link_to interest_path(interest), method: :delete do %>
+                <i class="far fa-trash-alt"></i>
+              <% end %>
+            <% end %>
+          </div>
+          <i id="clock-btn" class="far fa-clock"></i>
+          <span class="date">Last updated: <%= interest.updated_at %></span>
+          <h1 class="project-title"><%= interest.contribution.title %></h1>
+          <p class="card-description"><%= interest.contribution.description[0, 100] %></p>
+          <div class="reqs-box">
+            <p class ="card-skills"><strong><em>Relevant skills:</em> &ensp;</strong></p>
+            <div class="reqs">
+              <% interest.contribution.skills.each do |skill| %>
+              <i class="devicon-<%= skill.slug %>"></i>
               <% end %>
             </div>
-            <i id="clock-btn" class="far fa-clock"></i>
-            <span class="date">Last updated: <%= interest.updated_at %></span>
-            <h1 class="project-title"><%= interest.contribution.title %></h1>
-            <p class="card-description"><%= interest.contribution.description[0, 100] %></p>
-            <div class="reqs-box">
-              <p class ="card-skills"><strong><em>Relevant skills:</em> &ensp;</strong></p>
-              <div class="reqs">
-                <% interest.contribution.skills.each do |skill| %>
-                  <i class="devicon-<%= skill.slug %>"></i>
-                <% end %>
-              </div>
-            </div>
           </div>
-          <div class="card-out">
-            <h5>Read more</h5>
-            <i id="out-icon" class="fa fa-angle-right"></i>
-          </div>
-          <a class="card-link" href="<%= contribution_path(interest.contribution) %>" ></a>
         </div>
+        <div class="card-out">
+          <h5>Read more</h5>
+          <i id="out-icon" class="fa fa-angle-right"></i>
+        </div>
+        <a class="card-link" href="<%= contribution_path(interest.contribution) %>" ></a>
       </div>
+    </div>
     <% end %>
   </div>
 </div>

@@ -2,46 +2,45 @@
   <h3>Projects:</h3>
   <div class="row">
     <% @user.projects.each do |project| %>
-      <div class="col-xs-12 col-sm-4">
-        <div class="thecard">
-          <div class="card-img">
-            <img src="https://picsum.photos/200/300/?random">
+    <div class="col-xs-12 col-sm-4">
+      <div class="thecard">
+        <div class="card-img">
+          <img src="https://picsum.photos/200/300/?random">
+        </div>
+        <div class="card-caption">
+          <div class="card-delete">
+            <% if project.user == current_user %>
+            <%= link_to project_path(project), method: :delete do %>
+            <i class="far fa-trash-alt"></i>
+            <% end %>
+            <% end %>
           </div>
-          <div class="card-caption">
-            <div class="card-delete">
-              <% if project.user == current_user %>
-              <%= link_to project_path(project), method: :delete do %>
-              <i class="far fa-trash-alt"></i>
-                <% end %>
+          <i id="clock-btn" class="far fa-clock"></i>
+          <span class="date">Last updated: <%= project.updated_at %></span>
+          <h1 class="project-title"><%= project.title %></h1>
+          <p class="card-description"><p><%= project.description[0, 100] %></p>
+          <div class="reqs-box">
+            <p class ="card-skills"><strong><em>Relevant skills:</em> &ensp;</strong></p>
+            <div class="reqs">
+              <% project.skills.each do |skill| %>
+              <i class="devicon-<%= skill.slug %>"></i>
               <% end %>
             </div>
-            <i id="clock-btn" class="far fa-clock"></i>
-            <span class="date">Last updated: <%= project.updated_at %></span>
-            <h1 class="project-title"><%= project.title %></h1>
-            <p class="card-description"><p><%= project.description[0, 100] %></p>
-            <div class="reqs-box">
-              <p class ="card-skills"><strong><em>Relevant skills:</em> &ensp;</strong></p>
-              <div class="reqs">
-                <% project.skills.each do |skill| %>
-                  <i class="devicon-<%= skill.slug %>"></i>
-                <% end %>
-              </div>
-            </div>
-            <p class="green" id="bright"><%= "New interest" if project.interest? %></p>
           </div>
-          <div class="card-out">
-            <h5>Read more</h5>
-            <i id="out-icon" class="fa fa-angle-right"></i>
-          </div>
-          <a class="card-link" href="<%= project_path(project) %>" ></a>
+          <p class="green" id="bright"><%= "New interest" if project.interest? %></p>
         </div>
+        <div class="card-out">
+          <h5>Read more</h5>
+          <i id="out-icon" class="fa fa-angle-right"></i>
+        </div>
+        <a class="card-link" href="<%= project_path(project) %>" ></a>
       </div>
+    </div>
     <% end %>
-    </div>
-    <div class="new-project-button btn btn-primary">
-      <%= link_to "Create a New Project", new_project_path, class: "btn-primary" %>
-    </div>
   </div>
-  <br>
+  <div class="new-project-button btn btn-primary">
+    <%= link_to "Create a New Project", new_project_path, class: "btn-primary" %>
+  </div>
 </div>
-  <br>
+<br>
+<br>
