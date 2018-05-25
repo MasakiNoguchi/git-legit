@@ -97,8 +97,11 @@
 
 
 
+.col-xs-12.col-sm-4:hover .card-img img {
+  opacity: .9;
+}
 
-.col-xs-12.col-sm-4:hover .card-outmore {
+.col-xs-12.col-sm-4:hover .card-out {
   background: #2C3E50;
   color: #fff;
 }
@@ -106,6 +109,7 @@
 .col-xs-12.col-sm-4:hover .thecard {
   transform: scale(1.025)
 }
+
 
 .thecard {
   width: 300px;
@@ -121,7 +125,7 @@
 }
 
 .card-img img {
-  width:100%;
+  width: 100%;
   border-radius: 4px 4px 4px 4px;
 }
 
@@ -131,7 +135,7 @@
   padding: 15px 25px 5px 25px;
 }
 
-.card-outmore {
+.card-out {
   padding: 10px 25px 10px 25px;
   background: black;
   color: white;
@@ -140,10 +144,10 @@
   box-sizing: border-box;
   transition: 400ms ease;
 }
-.card-outmore h5 {
+.card-out h5 {
   float: left;
 }
-.card-outmore i {
+.card-out i {
   float: right;
 }
 
@@ -185,7 +189,7 @@ h5 {
   box-shadow: 0 4px 5px rgba(0,0,0,.3);
 }
 
-#outmore-icon {
+#out-icon {
   border:1px solid $green;
   padding: 1px 6px;
   border-radius: 50em;

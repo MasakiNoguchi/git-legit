@@ -6,14 +6,14 @@
       </div>
       <div class="card-caption">
         <i id="heart-btn" class="far fa-heart"></i>
-        <span class="date">Thursday, July 16, 2015</span>
-        <h1><%= project.title %></h1>
+        <span class="date">Last updated: <%= project.updated_at %></span>
+        <h1 class="project-title"><%= project.title %></h1>
         <p><%= project.description[0, 100] %></p>
         <p><strong>Relevant skills: &ensp;</strong><%= project_skills(project).join(", ") %></p>
       </div>
-      <div class="card-outmore">
+      <div class="card-out">
         <h5>Read more</h5>
-        <i id="outmore-icon" class="fa fa-angle-right"></i>
+        <i id="out-icon" class="fa fa-angle-right"></i>
       </div>
       <a class="card-link" href="<%= project_path(project) %>" ></a>
     </div>
