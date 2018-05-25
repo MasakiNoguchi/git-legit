@@ -4,15 +4,19 @@
 
   <div class="user-show section">
     <div class="user-profile">
-      <% if File.exist?("#{@user.email}.png") %>
-        <img class="avatar" src="<%= image_path("#{@user.email}.png") %>" height="160" width="160">
-      <% else %>
-        <img class="avatar" src="<%= image_path("placeholder.png") %>" height="160" width="160">
-      <% end %>
+      <div class="user-image">
+        <% if @user.photo.present? %>
+          <% photo = cl_image_tag @user.photo%>
+        <% else %>
+          <% photo = cl_image_tag('avatar.png') %>
+        <% end %>
+        <%= photo %>
+      </div>
       <div class="info">
         <h2><%= @user.full_name %></h2>
         <p><%= @user.email %></p>
         <p><%= @user.bio %></p>
+        <%= render 'user_form' %>
       </div>
     </div>
 
