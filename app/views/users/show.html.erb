@@ -41,69 +41,19 @@
 <!---------------------------->
 
   <!-- USER PROJECT CARDS -->
-
   <%= render 'pages/user_show_projects_cards' %>
 
 <!------------------------------>
 
-  <div class="user-interests section">
-    <h3>Contributions you are interested in:</h3>
-    <div class="row">
-      <% @user.interests.each do |interest| %>
-        <div class="col-xs-12 col-sm-4">
-          <div class="thecard">
-            <div class="card-img">
-              <img src="https://picsum.photos/200/300/?random">
-            </div>
-            <div class="card-caption">
-              <div class="card-delete">
-                <% if interest.contribution.user == current_user %>
-                <%= link_to contribution_path(interest), method: :delete do %>
-                <i class="far fa-trash-alt"></i>
-                  <% end %>
-                <% end %>
-              </div>
-              <i id="clock-btn" class="far fa-clock"></i>
-              <span class="date">Last updated: <%= interest.updated_at %></span>
-              <h1 class="project-title"><%= interest.contribution.title %></h1>
-              <p class="card-description">
-                <h2><%= interest.contribution.title %></h2>
-                <p><%= interest.contribution.description[0, 100] %></p>
-                <p class ="card-skills"><strong><em>Relevant skills:</em> &ensp;</strong><%= interest.contribution.skills.join(", ") %></p>
-            </div>
-            <div class="card-out">
-              <h5>Read more</h5>
-              <i id="out-icon" class="fa fa-angle-right"></i>
-            </div>
-            <a class="card-link" href="<%= contribution_path(interest.contribution) %>" ></a>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
-
+  <!-- USER INTEREST CARDS -->
+  <%= render 'pages/user_show_interests_cards' %>
 
 <!---------------------------------->
 
-  <div class="user-contributions section" id="last-section">
-    <h3>Contributions you are working on:</h3>
-    <div class="row">
-      <% @user.contributions.each do |contribution| %>
-        <div class="col-xs-12 col-sm-4">
-          <div class="card">
-            <a class="card-link" href="<%= contribution_path(contribution) %>" ></a>
-            <div class="card-description">
-              <h2><%= contribution.title %></h2>
-              <p><%= contribution.description[0, 100] %></p>
-            </div>
-            <div class="card-delete">
-                <i class="far fa-trash-alt"></i>
-            </div>
-          </div>
-        </div>
-      <% end %>
-    </div>
-  </div>
+  <!-- USER CONTRIBUTIONS CURRENTLY WORKING ON CARDS -->
+  <%= render 'pages/user_show_contributions_cards' %>
+
+<!---------------------------------->
 
   <%= link_to "Back", :back %>
 </div>

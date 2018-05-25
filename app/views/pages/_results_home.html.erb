@@ -5,6 +5,13 @@
         <img src="https://picsum.photos/200/300/?random">
       </div>
       <div class="card-caption">
+        <div class="card-delete">
+          <% if project.user == current_user %>
+          <%= link_to project_path(project), method: :delete do %>
+          <i class="far fa-trash-alt"></i>
+            <% end %>
+          <% end %>
+        </div>
         <i id="clock-btn" class="far fa-clock"></i>
         <span class="date">Last updated: <%= project.updated_at %></span>
         <h1 class="project-title"><%= project.title %></h1>
