@@ -16,7 +16,7 @@ class PagesController < ApplicationController
   def project_skills(project)
     skills = []
     project.contributions.each do |contribution|
-      contribution.skills.each { |skill| skills << skill.name}
+      contribution.skills.each { |skill| skills << skill}
     end
     skills.uniq
   end

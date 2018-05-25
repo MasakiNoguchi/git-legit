@@ -18,21 +18,27 @@
 
     <div class="user-skills">
       <h3>Skills:</h3>
-      <p><em><% @user.knowledges.each do |knowledge| %></p>
-      <div class="knowledges">
-        <i class="devicon-<%= knowledge.skill.slug %>"></i>
-      </div>
-      <%= knowledge.skill.name + ": " + knowledge.level %>
-        <% if @user == current_user %>
-          <%= link_to knowledge_path(knowledge), method: :delete do %>
-            <i class="far fa-trash-alt"></i>
-          <% end %>
+      <div class="knowledges-list">
+        <% @user.knowledges.each do |knowledge| %>
+          <div class="knowledges-box">
+            <span class="knowledges">
+              <i class="devicon-<%= knowledge.skill.slug %>"></i>
+            </span>
+            <div class="details">
+              <%= knowledge.skill.name + ": " + knowledge.level %>
+            </div>
+            <% if @user == current_user %>
+              <%= link_to knowledge_path(knowledge), method: :delete do %>
+                <i class="far fa-trash-alt"></i>
+              <% end %>
+            <% end %>
+            <br>
+          </div>
         <% end %>
-      <% end %></em>
-      <br>
+      </div>
       <% if @user == current_user %>
         <div class="add-skill-button">
-         <%= link_to "Add a Skill", new_knowledge_path, class: "btn btn-primary" %>
+          <%= link_to "Add a Skill", new_knowledge_path, class: "btn btn-primary" %>
         </div>
       <% end %>
     </div>
