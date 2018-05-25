@@ -36,23 +36,42 @@
     <% if @project.user == current_user %>
       <div class="text-center card-spacing"><%= link_to "Add contribution", new_project_contribution_path(@project)%></div>
     <% end %>
-    <div class="row">
-      <% @project.contributions.each_with_index do |contribution, i| %>
-        <div class="col-xs-12 col-sm-4">
-          <div class="card">
-            <div class="card-category green"># <%= i + 1 %></div>
-            <div class="card-description">
-              <h2><%= contribution.title %></h2>
-              <p><%= contribution.description[0, 100] %></p>
-              <p><strong>Relevant skills: &ensp;</strong><%= contribution.skills.map {|skill| skill.name}.join(", ") %></p>
-              <p class="green" id="bright"><%= "New interest" if contribution.interests.length > 0 && contribution.status == "open" %></p>
+
+      <div class="row">
+        <% @project.contributions.each do |contribution| %>
+          <div class="col-xs-12 col-sm-4">
+            <div class="thecard">
+              <div class="card-caption">
+                <div class="card-delete">
+                  <% if contribution.user == current_user %>
+                    <%= link_to remove_contribution_user_path(contribution) do %>
+                      <p>unassign</p>
+                    <% end %>
+                  <% end %>
+                </div>
+                <i id="clock-btn" class="far fa-clock"></i>
+                <span class="date">Last updated: <%= contribution.updated_at %></span>
+                <h1 class="project-title"><%= contribution.title %></h1>
+                <p class="card-description"><%= contribution.description[0, 100] %></p>
+                <div class="reqs-box">
+                  <p class ="card-skills"><strong><em>Relevant skills:</em> &ensp;</strong></p>
+                  <div class="reqs">
+                    <% contribution.skills.each do |skill| %>
+                      <i class="devicon-<%= skill.slug %>"></i>
+                    <% end %>
+                  </div>
+                </div>
+              </div>
+              <div class="card-out">
+                <h5>Read more</h5>
+                <i id="out-icon" class="fa fa-angle-right"></i>
+              </div>
+              <a class="card-link" href="<%= contribution_path(contribution) %>" ></a>
             </div>
-            <!-- <img class="card-user" src="https://kitt.lewagon.com/placeholder/users/tgenaitay"> -->
-            <a class="card-link" href="<%= contribution_path(contribution) %>" ></a>
           </div>
-        </div>
-      <% end %>
-    </div>
+        <% end %>
+      </div>
+
 
 
     <%= link_to "Back", :back %>
