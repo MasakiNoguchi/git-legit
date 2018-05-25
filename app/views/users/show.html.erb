@@ -51,19 +51,25 @@
 <!---------------------------->
 
   <!-- USER PROJECT CARDS -->
-  <%= render 'pages/user_show_projects_cards' %>
+  <% if @user.projects.length > 0 %>
+    <%= render 'pages/user_show_projects_cards' %>
+  <% else %>
+    <p> </p>
+    <div class="new-project-button btn btn-primary">
+      <%= link_to "Create a New Project", new_project_path, class: "btn-primary" %>
+    </div>
+  <% end %>
 
 <!------------------------------>
 
   <!-- USER INTEREST CARDS -->
-  <%= render 'pages/user_show_interests_cards' %>
+  <%= render 'pages/user_show_interests_cards' if @user.interests.length > 0 %>
 
 <!---------------------------------->
 
   <!-- USER CONTRIBUTIONS CURRENTLY WORKING ON CARDS -->
-  <%= render 'pages/user_show_contributions_cards' %>
+  <%= render 'pages/user_show_contributions_cards' if @user.contributions.length > 0 %>
 
 <!---------------------------------->
 
-  <%= link_to "Back", :back %>
 </div>
